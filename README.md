@@ -51,13 +51,67 @@ The full form of an ARM is an advanced reduced instruction set computer (RISC) m
 
 
 ## STM 32 CUBE PROGRAM :
+### DEVELOPED BY: Gumma Dileep Kumar
+### REGISTER NO: 212222240032
+
+```python
+#include "main.h"
+#include"stdbool.h"
+bool pushbutton;
+
+
+void SystemClock_Config(void);
+static void MX_GPIO_Init(void);
+
+
+int main(void)
+{
+  
+			HAL_Init();
+
+ 
+  SystemClock_Config();
+
+ 
+  MX_GPIO_Init();
+ 
+  while (1)
+  {
+   
+pushbutton=HAL_GPIO_ReadPin(GPIOC,GPIO_PIN_13);
+if(pushbutton==0)
+{
+	HAL_GPIO_WritePin(GPIOA, GPIO_PIN_5, GPIO_PIN_SET);
+	HAL_Delay(2000);
+	HAL_GPIO_WritePin(GPIOA, GPIO_PIN_5, GPIO_PIN_RESET);
+	HAL_Delay(2000);
+}
+else
+{
+	HAL_GPIO_WritePin(GPIOA, GPIO_PIN_5, GPIO_PIN_RESET);
+	HAL_Delay(2000);
+
+}
+   
+  }
+  
+}
+```
 
 
 
 ## Output  :
+
+### LED_OFF
+
+![PMC_2 1](https://github.com/gummadileepkumar/EXPERIMENT--02-INTEFACING-A-DIGITAL-INPUT-TO-ARM-DEVELOPMENT-BOARD/assets/118707761/c4569141-edce-45fc-804d-ac72bfbdd5d9)
+
+
+### LED ON
  
  
- 
+ ![PMC_2 2](https://github.com/gummadileepkumar/EXPERIMENT--02-INTEFACING-A-DIGITAL-INPUT-TO-ARM-DEVELOPMENT-BOARD/assets/118707761/6d49ed0a-daa4-4246-9704-883b49e094dc)
+
  
 ## Result :
 Interfacing a digital Input (Pushbutton ) with ARM microcontroller based IOT development is executed and the results are verified.
